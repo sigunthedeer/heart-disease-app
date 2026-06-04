@@ -1,4 +1,4 @@
-# ❤️ Heart Disease Risk Predictor — Live Interactive App
+# ❤️ Heart Disease Risk Predictor - Live Interactive App
 
 > An interactive web app that predicts heart disease risk from patient details 
 > AND explains which factors drove each prediction. Built with Streamlit.
@@ -7,13 +7,13 @@
 
 ## What It Does
 
-Enter a patient's clinical details — age, chest pain type, cholesterol, max heart 
-rate, and more — and the app returns a risk prediction along with a chart showing 
+Enter a patient's clinical details - age, chest pain type, cholesterol, max heart 
+rate, and more - and the app returns a risk prediction along with a chart showing 
 exactly which factors pushed the prediction toward higher or lower risk.
 
 ## Why It's Different
 
-Most prediction tools are black boxes. This one is **interpretable** — for every 
+Most prediction tools are black boxes. This one is **interpretable** - for every 
 prediction, it shows the per-patient factor contributions, so you can see *why* 
 the model decided what it did. Model interpretability is increasingly essential 
 in healthcare ML.
