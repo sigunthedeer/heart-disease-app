@@ -15,13 +15,13 @@ feature_names = ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs',
 
 # --- PAGE SETUP ---
 st.set_page_config(page_title="Heart Disease Risk Predictor", page_icon="❤️", layout="wide")
-# set_page_config — sets the browser tab title, icon, and page width
-# layout="wide" — uses the full width of the screen
+# set_page_config - sets the browser tab title, icon, and page width
+# layout="wide" - uses the full width of the screen
 
 st.title("❤️ Heart Disease Risk Predictor")
-# st.title — big heading at the top of the page
+# st.title - big heading at the top of the page
 st.markdown("Enter patient details below to estimate heart disease risk and see which factors drive the prediction.")
-# st.markdown — writes text (supports markdown formatting)
+# st.markdown - writes text (supports markdown formatting)
 
 st.warning(
     "⚠️ **Disclaimer:** This is an educational portfolio project, not a medical "
@@ -29,23 +29,23 @@ st.warning(
     "used for real medical decisions. Always consult a qualified healthcare "
     "professional for any health concerns."
 )
-# st.warning — displays a yellow attention box
+# st.warning - displays a yellow attention box
 
 # --- INPUT SECTION ---
 st.header("Patient Details")
 
-# st.columns — splits the page into side-by-side columns
+# st.columns - splits the page into side-by-side columns
 col1, col2, col3 = st.columns(3)
 # creates 3 columns so inputs aren't all in one long stack
 
 with col1:
-    # 'with col1:' — everything indented here goes in the first column
+    # 'with col1:' - everything indented here goes in the first column
     age = st.slider("Age", 20, 100, 50)
-    # st.slider(label, min, max, default) — a draggable slider
+    # st.slider(label, min, max, default) - a draggable slider
     sex = st.selectbox("Sex", options=[("Female", 0), ("Male", 1)],
                        format_func=lambda x: x[0])[1]
-    # st.selectbox — a dropdown menu
-    # format_func — shows the readable label but stores the number
+    # st.selectbox - a dropdown menu
+    # format_func - shows the readable label but stores the number
     cp = st.selectbox("Chest Pain Type",
                       options=[("Typical angina", 0), ("Atypical angina", 1),
                                ("Non-anginal", 2), ("Asymptomatic", 3)],
@@ -82,7 +82,7 @@ with col3:
 st.header("Prediction")
 
 if st.button("Predict Risk", type="primary"):
-    # st.button — creates a clickable button
+    # st.button - creates a clickable button
     # the code inside this 'if' runs only when the button is clicked
 
     # Gather inputs in the correct order
@@ -91,26 +91,26 @@ if st.button("Predict Risk", type="primary"):
 
     # Scale the inputs the same way the model was trained
     input_array = np.array(inputs).reshape(1, -1)
-    # reshape(1, -1) — turns the list into a single row the model can read
+    # reshape(1, -1) - turns the list into a single row the model can read
     input_scaled = scaler.transform(input_array)
 
     # Predict
     prediction = model.predict(input_scaled)[0]
     probability = model.predict_proba(input_scaled)[0][1]
-    # [0][1] — probability of class 1 (heart disease)
+    # [0][1] - probability of class 1 (heart disease)
 
     # Show result
     if prediction == 1:
-        st.error(f"⚠️ Higher Risk Detected — {probability:.0%} probability of heart disease")
-        # st.error — red warning box
+        st.error(f"⚠️ Higher Risk Detected - {probability:.0%} probability of heart disease")
+        # st.error - red warning box
     else:
-        st.success(f"✓ Lower Risk — {probability:.0%} probability of heart disease")
-        # st.success — green success box
+        st.success(f"✓ Lower Risk - {probability:.0%} probability of heart disease")
+        # st.success - green success box
         
     st.caption(
     "Reminder: this prediction is for demonstration only and is not medical advice."
 )
-# st.caption — small grey text, good for fine print
+# st.caption - small grey text, good for fine print
 
 
 # --- THE EDUCATIONAL PART: which factors drove this prediction ---
@@ -130,7 +130,7 @@ if st.button("Predict Risk", type="primary"):
     ax.set_xlabel("Contribution to prediction")
     ax.axvline(x=0, color='black', linewidth=0.8)
     st.pyplot(fig)
-    # st.pyplot — displays a matplotlib chart in the app
+    # st.pyplot - displays a matplotlib chart in the app
 
     st.caption("This shows how each factor influenced THIS patient's prediction specifically.")
     
