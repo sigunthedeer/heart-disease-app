@@ -3,7 +3,7 @@
 > An interactive web app that predicts heart disease risk from patient details 
 > AND explains which factors drove each prediction. Built with Streamlit.
 
-🔗 **Live app:** https://heart-disease-app-zx68prp8mesde4ce5usc7q.streamlit.app/
+🔗 **[Live app](https://heart-disease-app-zx68prp8mesde4ce5usc7q.streamlit.app/)**
 
 ## What It Does
 
